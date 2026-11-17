@@ -1,0 +1,13 @@
+{
+  "itemGroup.betanightmares": "Example Mod Tab",
+  "block.betanightmares.example_block": "Example Block",
+  "item.betanightmares.example_item": "Example Item",
+
+  "betanightmares.configuration.title": "Beta Nightmares Configs",
+  "betanightmares.configuration.section.betanightmares.common.toml": "Beta Nightmares Configs",
+  "betanightmares.configuration.section.betanightmares.common.toml.title": "Beta Nightmares Configs",
+  "betanightmares.configuration.items": "Item List",
+  "betanightmares.configuration.logDirtBlock": "Log Dirt Block",
+  "betanightmares.configuration.magicNumberIntroduction": "Magic Number Text",
+  "betanightmares.configuration.magicNumber": "Magic Number"
+}
