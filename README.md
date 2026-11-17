@@ -6,6 +6,7 @@ A Minecraft mod that reimplementation of the nightmare mechanic that existed fro
 Proper config file
 
 ## Recourses used
-[Minecraft bed wiki](https://minecraft.fandom.com/wiki/Bed#History)
-[In depth Youtube Video](https://www.youtube.com/watch?v=vkkRmdbqPjw&t=128s)
-[1.21.1 Neoforge docs](https://docs.neoforged.net/docs/1.21.1/resources/)
+[Minecraft Bed Wiki](https://minecraft.fandom.com/wiki/Bed#History)
+
+[Indepth Youtube Video](https://www.youtube.com/watch?v=vkkRmdbqPjw&t=128s)
+[1.21.1 Neoforge Docs](https://docs.neoforged.net/docs/1.21.1/resources/)
