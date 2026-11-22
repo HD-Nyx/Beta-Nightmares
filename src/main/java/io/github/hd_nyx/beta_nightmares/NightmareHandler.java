@@ -2,14 +2,12 @@ package io.github.hd_nyx.beta_nightmares;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.Util;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.AABB;
@@ -48,8 +46,21 @@ public class NightmareHandler
                 continue;
             }
 
-            EntityType<?> mobType = Util.getRandom(NightmareMobs.ENTITY_POOL, level.getRandom());
-            Entity entity = mobType.spawn(level, bedPos.offset(-2, 1, 0), MobSpawnType.EVENT);
+            EntityType<?> mobType = Util.getRandom(Config.mobPool(), level.getRandom());
+
+            if (mobType.getCategory() != MobCategory.MONSTER)
+            {
+                continue;
+            }
+
+            BlockPos spawnPos = bedPos.relative(Direction.Plane.HORIZONTAL.getRandomDirection(level.getRandom()));
+
+            if (!validSpawnState(level, spawnPos))
+            {
+                continue;
+            }
+
+            Entity entity = mobType.spawn(level, spawnPos, MobSpawnType.EVENT);
 
             if (entity == null)
             {
@@ -67,12 +78,9 @@ public class NightmareHandler
                 mob.lookAt(EntityAnchorArgument.Anchor.EYES, player.getEyePosition());
             }
 
-            BetaNightmares.LOGGER.info("Spawned {} at {}", entity, chosenBlock);
-
             return;
         }
 
-        BetaNightmares.LOGGER.info("No valid spot found after 20 attempts");
     }
 
     // Attempts to path the probe to the bed to see if it can reach the bed
@@ -114,6 +122,7 @@ public class NightmareHandler
     }
 
     // Check if spawn position is valid
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted") // Better for clarity for reading
     private static boolean validSpawnState(ServerLevel level, BlockPos choosenBlock)
     {
         return level.getBlockState(choosenBlock).isAir() && !level.getBlockState(choosenBlock.below()).isAir();
