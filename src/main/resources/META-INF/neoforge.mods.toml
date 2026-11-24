@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="Apache 2.0"
+
+[[mods]]
+modId="betanightmares"
+version="1.1.5"
+displayName="Beta Nightmares"
+
+logoFile="mod_icon.png"
+logoBlur=false
+authors="HD_Nyx"
+description='''
+Reimplements the 'nightmare' mechanic from beta minecraft
+'''
+
+[[dependencies.betanightmares]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.0,21.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.betanightmares]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"

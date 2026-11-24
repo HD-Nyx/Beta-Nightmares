@@ -16,7 +16,7 @@ import java.util.List;
 
 public class NightmareHandler
 {
-    public static final int selectionRadius = 10;
+    public static final int SELECTION_RADIUS = 10;
     public static final String NIGHTMARE_TAG = "BetaNightmares";
 
     // Main function
@@ -34,7 +34,7 @@ public class NightmareHandler
 
         for (int attempt = 0; attempt < 20; attempt++)
         {
-            BlockPos chosenBlock = randomNear(bedPos, selectionRadius, level.getRandom());
+            BlockPos chosenBlock = randomNear(bedPos, SELECTION_RADIUS, level.getRandom());
 
             if (level.getMaxLocalRawBrightness(chosenBlock) > 7 || !validSpawnState(level, chosenBlock))
             {
@@ -122,7 +122,7 @@ public class NightmareHandler
     }
 
     // Check if spawn position is valid
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted") // Better for clarity for reading
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted") // Better for clarity when reading
     private static boolean validSpawnState(ServerLevel level, BlockPos choosenBlock)
     {
         return level.getBlockState(choosenBlock).isAir() && !level.getBlockState(choosenBlock.below()).isAir();
