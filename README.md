@@ -23,3 +23,5 @@ Not only that but custom command execution for when a nightmare occurs, your wel
 
 This mod uses the Apache 2.0 License
 For modpack developers, only if you have a credits section then please credit my work. 
+
+![SHOWCASE](https://github.com/HD-Nyx/Beta-Nightmares/blob/master/src/main/resources/BetaNightmares-gif.gif)
